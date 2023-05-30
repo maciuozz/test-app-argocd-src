@@ -3,7 +3,7 @@ PYTHON 	= $(VENV)/bin/python3
 PIP		= $(VENV)/bin/pip
 
 # Variables used to configure
-IMAGE_REGISTRY	?= xoanmallon
+IMAGE_REGISTRY	?= maciuozz
 IMAGE_NAME		?= test-argocd-app
 VERSION			?= develop
 
