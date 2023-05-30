@@ -1,0 +1,39 @@
+
+
+on:
+  workflow_run:
+    workflows:
+      - "Lint"
+    branches:
+      - '*'
+    types:
+      - completed
+
+env:
+  PYTHON_VERSION: '3.8.12'
+
+name: Test
+jobs:
+  unit-tests:
+    if: "${{ github.event.workflow_run.conclusion == 'success' && !contains(github.event.commits[0].message, 'chore(release):') }}"
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Upgrade pip
+        run: pip3 install --upgrade pip
+
+      - name: Install python dependencies
+        run: pip3 install -r requirements.txt
+
+      - name: Run unit-tests
+        run: pytest

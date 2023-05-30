@@ -1,0 +1,37 @@
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - '*'
+
+env:
+  PYTHON_VERSION: '3.8.12'
+
+name: Lint
+jobs:
+  lint-python-code:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Upgrade pip
+        run: pip3 install --upgrade pip
+
+      - name: Install necessary dependencies
+        run: pip3 install -r requirements.txt
+
+      - name: Run pre-commit
+        uses: pre-commit/action@v2.0.3
+        with:
+          extra_args: "-a -v"
