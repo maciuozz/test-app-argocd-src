@@ -1,0 +1,22 @@
+# https://coverage.readthedocs.io/en/latest/config.html
+# .coveragerc to control coverage.py embbed in pytest --cov
+[run]
+branch = True
+omit =
+    .*
+    */env/*
+    */*-env/*
+    */dist-packages/*
+    */site-packages/*
+[paths]
+source =
+    .
+[report]
+
+ignore_errors = False
+fail_under = 90
+precision = 2
+show_missing = True
+
+[html]
+directory = coverage_html_report
