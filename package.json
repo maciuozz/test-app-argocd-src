@@ -2,7 +2,7 @@
   "name": "test-argocd-app",
   "repository": {
     "type": "git",
-    "url": "git@github.com:xoanmm/test-app-argocd-src.git"
+    "url": "git@github.com:maciuozz/test-app-argocd-src.git"
   },
   "dependencies": {
     "@semantic-release/exec": "6.0.2",
