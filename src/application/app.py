@@ -10,7 +10,7 @@ app = FastAPI(
     port=8081
 )
 
-root_endpoint_message = {"message": "Hello world finally updated"}
+root_endpoint_message = {"message": "Hello world updated manually"}
 health_message = {"health": "ok"}
 
 """
