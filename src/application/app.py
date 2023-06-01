@@ -10,7 +10,7 @@ app = FastAPI(
     port=8081
 )
 
-root_endpoint_message = {"message": "Hello world will be updated automatically"}
+root_endpoint_message = {"message": "Hello world will be updated automatically in private repository"}
 health_message = {"health": "ok"}
 
 """
